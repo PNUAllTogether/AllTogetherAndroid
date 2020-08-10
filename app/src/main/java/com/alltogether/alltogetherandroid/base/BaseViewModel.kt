@@ -1,4 +1,4 @@
-package com.example.alltogetherandroid.base
+package com.alltogether.alltogetherandroid.base
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

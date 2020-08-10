@@ -1,4 +1,4 @@
-package com.example.alltogetherandroid.base
+package com.alltogether.alltogetherandroid.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
