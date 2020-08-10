@@ -1,4 +1,4 @@
-package com.example.alltogetherandroid
+package com.alltogether.alltogetherandroid
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
