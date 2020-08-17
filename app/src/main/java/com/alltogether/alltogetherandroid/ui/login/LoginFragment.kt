@@ -1,4 +1,4 @@
-package com.alltogether.alltogetherandroid.login
+package com.alltogether.alltogetherandroid.ui.login
 
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment

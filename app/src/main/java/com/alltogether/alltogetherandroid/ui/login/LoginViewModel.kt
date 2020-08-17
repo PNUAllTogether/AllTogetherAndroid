@@ -1,4 +1,4 @@
-package com.alltogether.alltogetherandroid.login
+package com.alltogether.alltogetherandroid.ui.login
 
 import android.app.Activity
 import android.content.Context

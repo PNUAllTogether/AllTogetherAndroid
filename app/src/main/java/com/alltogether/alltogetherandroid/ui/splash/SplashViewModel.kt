@@ -1,4 +1,4 @@
-package com.alltogether.alltogetherandroid.splash
+package com.alltogether.alltogetherandroid.ui.splash
 
 import androidx.lifecycle.LiveData
 import com.alltogether.alltogetherandroid.base.BaseViewModel

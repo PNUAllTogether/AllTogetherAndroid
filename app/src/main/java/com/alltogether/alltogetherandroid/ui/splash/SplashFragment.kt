@@ -1,4 +1,4 @@
-package com.alltogether.alltogetherandroid.splash
+package com.alltogether.alltogetherandroid.ui.splash
 
 import android.os.Handler
 import androidx.lifecycle.Observer
