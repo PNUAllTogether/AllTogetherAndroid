@@ -55,8 +55,6 @@ class LoginViewModel(private val loginModule : OAuthLogin,
                 Log.e("test user info image",it.response.profile_image)
                 Log.e("test user info id", it.response.id.toString())
 
-
-
 //                val response =  userInfo(it.response.email,it.response.id,it.response.name,it.response.profile_image, userType.parent)
 //                val params = HashMap<String, String>()
 //                params["data"] = Gson().toJson(response)

@@ -13,12 +13,12 @@ import com.alltogether.alltogetherandroid.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity<MainActivityViewModel>() {
+class MainActivity : BaseActivity<ActivityViewModel>() {
 
     override val layoutSource: Int
         get() = R.layout.activity_main
 
-    override val viewModel: MainActivityViewModel by viewModel()
+    override val viewModel: ActivityViewModel by viewModel()
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
