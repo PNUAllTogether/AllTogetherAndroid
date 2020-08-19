@@ -86,7 +86,7 @@
                 android:layout_height="48dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:inputType="text"
+                android:inputType="number"
                 android:drawablePadding="12dp"
                 android:hint="아동의 나이를 입력해 주세요."
                 android:textColorHint="@color/p_light_gray"
