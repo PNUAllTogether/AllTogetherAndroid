@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">AllTogetherAndroid</string>
+    <string name="app_name">AllTogether</string>
+
+    <string-array name="child_type_list">
+        <item>시각장애</item>
+        <item>청각장애</item>
+        <item>지적장애</item>
+        <item>지체장애</item>
+        <item>정서행동장애</item>
+        <item>자폐성장애</item>
+        <item>의사소통장애</item>
+        <item>학습장애</item>
+        <item>건강장애</item>
+        <item>발달지체</item>
+        <item>발달장애</item>
+        <item>뇌병변장애</item>
+    </string-array>
 </resources>

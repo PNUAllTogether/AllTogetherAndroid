@@ -7,4 +7,9 @@
     <color name="white">#ffffff</color>
     <color name="theme_blue">#20c1fe</color>
     <color name="naver">#17e34d</color>
+    <color name="text_dark">#505050</color>
+    <color name="box_grey">#f3f5f6</color>
+    <color name="dark_blue_grey">#434348</color>
+    <color name="p_light_gray">#b7b7b7</color>
+    <color name="s_textBlack">#212121</color>
 </resources>
