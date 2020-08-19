@@ -1,16 +1,16 @@
 package com.alltogether.alltogetherandroid.api
 
-import com.alltogether.alltogetherandroid.dto.checkExistUser
-import com.alltogether.alltogetherandroid.dto.parentInfo
-import com.alltogether.alltogetherandroid.dto.supporterInfo
-import com.alltogether.alltogetherandroid.dto.userInfo
+import com.alltogether.alltogetherandroid.dto.*
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 import io.reactivex.Single
 import okhttp3.ResponseBody
 import retrofit2.http.*
 
 interface ServerService {
-    @GET("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/check")
-    fun checkExistUser(@Query("id") id : Int) : Single<checkExistUser>
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/check")
+    fun checkExistUser(@Body id : postInt) : Single<checkExistUser>
 
 //    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/register")
 //    @FormUrlEncoded
