@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">AllTogether</string>
 
+    <string-array name="supporter_gender">
+        <item>여성</item>
+        <item>남성</item>
+    </string-array>
     <string-array name="child_type_list">
         <item>시각장애</item>
         <item>청각장애</item>
