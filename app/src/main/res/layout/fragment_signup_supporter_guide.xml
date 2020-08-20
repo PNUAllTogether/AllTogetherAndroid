@@ -60,8 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
         android:layout_marginTop="36dp"
-        android:text="현재 매칭된 아이들을 한눈에 확인하고\n
-학부모님께 신속한 정보를 전달할 수 있습니다."
+        android:text="현재 매칭된 아이들을 한눈에 확인하고\n학부모님께 신속한 정보를 전달할 수 있습니다."
         android:textAlignment="center"
         android:textColor="@color/text_dark"
         android:textSize="16sp"

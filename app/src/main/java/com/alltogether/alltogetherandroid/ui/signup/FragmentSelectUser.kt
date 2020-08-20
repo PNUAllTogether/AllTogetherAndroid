@@ -18,7 +18,7 @@ class FragmentSelectUser : BaseFragment<LoginViewModel>() {
             findNavController().navigate(R.id.action_fragmentSelectUser_to_fragmentSignupParentGuide)
         }
         button_select_supporter.setOnClickListener {
-            //이동
+            findNavController().navigate(R.id.action_fragmentSelectUser_to_fragmentSignupSupporterGuide)
         }
     }
 
