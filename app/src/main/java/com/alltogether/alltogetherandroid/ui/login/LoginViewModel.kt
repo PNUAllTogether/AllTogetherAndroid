@@ -44,6 +44,7 @@ class LoginViewModel(private val loginModule : OAuthLogin,
     var id: Int = 0
     lateinit var name: String
     lateinit var profileImage: String
+    lateinit var usertype: userType
 
 
 
@@ -92,8 +93,12 @@ class LoginViewModel(private val loginModule : OAuthLogin,
             }
             else {
                 //회원가입 필요 X -> 로그인 진행
-                //로그인 성공하면 회원 id를 로컬에 저장하고 어플 실행 시 마다 로컬에 id가 있는지 체크
+                //id와 usertype은 저장해놓아야함 -> session
+                Log.e("body", it.body.toString())
+                if(it.body.usertype == "parent") usertype = userType.parent
+                else usertype = userType.supporter
 
+                _onLoginProceed.call()
             }
         })
     }

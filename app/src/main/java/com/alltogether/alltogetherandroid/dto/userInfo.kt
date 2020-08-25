@@ -15,8 +15,8 @@ data class userInfo(
     val name: String,
     @SerializedName("profile_image")
     @Expose
-    val profile_image: String,
-    @SerializedName("usertype")
-    @Expose
-    val usertype: userType
+    val profile_image: String
+//    @SerializedName("usertype")
+//    @Expose
+//    val usertype: userType
 )

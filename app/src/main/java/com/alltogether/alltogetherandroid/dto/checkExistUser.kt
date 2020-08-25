@@ -1,7 +1,7 @@
 package com.alltogether.alltogetherandroid.dto
 
 data class checkExistUser(
-    val body: String,
+    val body: body,
     val response: String,
     val result: String
 )

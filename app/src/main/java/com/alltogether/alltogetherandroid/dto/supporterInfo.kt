@@ -45,5 +45,8 @@ data class supporterInfo (
     val officeTime: String,
     @SerializedName("department")
     @Expose
-    val department: String
+    val department: String,
+    @SerializedName("region")
+    @Expose
+    val region: String
 )
