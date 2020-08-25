@@ -42,11 +42,13 @@
     <fragment
         android:id="@+id/fragmentSignupParentChildInfo"
         android:name="com.alltogether.alltogetherandroid.ui.signup.FragmentSignupParentChildInfo"
-        android:label="FragmentSignupParentChildInfo" />
+        android:label="FragmentSignupParentChildInfo"
+        tools:layout="@layout/fragment_signup_parent_child_info"/>
     <fragment
         android:id="@+id/fragmentSignupParentGuide"
         android:name="com.alltogether.alltogetherandroid.ui.signup.FragmentSignupParentGuide"
-        android:label="FragmentSignupParentGuide" >
+        android:label="FragmentSignupParentGuide"
+        tools:layout="@layout/fragment_signup_parent_guide">
         <action
             android:id="@+id/action_fragmentSignupParentGuide_to_fragmentSignupParentChildInfo"
             app:destination="@id/fragmentSignupParentChildInfo"
@@ -58,7 +60,8 @@
     <fragment
         android:id="@+id/fragmentSelectUser"
         android:name="com.alltogether.alltogetherandroid.ui.signup.FragmentSelectUser"
-        android:label="FragmentSelectUser" >
+        android:label="FragmentSelectUser"
+        tools:layout="@layout/fragment_select_user">
         <action
             android:id="@+id/action_fragmentSelectUser_to_fragmentSignupParentGuide"
             app:destination="@id/fragmentSignupParentGuide"
@@ -66,5 +69,30 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_fragmentSelectUser_to_fragmentSignupSupporterGuide"
+            app:destination="@id/fragmentSignupSupporterGuide"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentSignupSupporterGuide"
+        android:name="com.alltogether.alltogetherandroid.ui.signup.FragmentSignupSupporterGuide"
+        android:label="FragmentSignupSupporterGuide"
+        tools:layout="@layout/fragment_signup_supporter_guide">
+        <action
+            android:id="@+id/action_fragmentSignupSupporterGuide_to_fragmentSignupSupporterInfo"
+            app:destination="@id/fragmentSignupSupporterInfo"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSignupSupporterInfo"
+        android:name="com.alltogether.alltogetherandroid.ui.signup.FragmentSignupSupporterInfo"
+        android:label="FragmentSignupSupporterInfo"
+        tools:layout="@layout/fragment_signup_supporter_info"/>
 </navigation>
