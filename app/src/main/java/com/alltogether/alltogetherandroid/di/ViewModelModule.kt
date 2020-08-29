@@ -24,7 +24,7 @@ val viewModelModule = module {
         FeedViewModel()
     }
     viewModel {
-        SupporterSearchViewModel()
+        SupporterSearchViewModel(get())
     }
     viewModel {
         CommunityViewModel()

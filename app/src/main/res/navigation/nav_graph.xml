@@ -9,7 +9,15 @@
         android:id="@+id/mainFragment"
         android:name="com.alltogether.alltogetherandroid.ui.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_supporterSearchResultFragment"
+            app:destination="@id/supporterSearchResultFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.alltogether.alltogetherandroid.ui.splash.SplashFragment"
@@ -95,4 +103,9 @@
         android:name="com.alltogether.alltogetherandroid.ui.signup.FragmentSignupSupporterInfo"
         android:label="FragmentSignupSupporterInfo"
         tools:layout="@layout/fragment_signup_supporter_info"/>
+    <fragment
+        android:id="@+id/supporterSearchResultFragment"
+        android:name="com.alltogether.alltogetherandroid.ui.main.SupporterSearchResultFragment"
+        android:label="SupporterSearchResultFragment"
+        tools:layout="@layout/fragment_supporter_search_result"/>
 </navigation>

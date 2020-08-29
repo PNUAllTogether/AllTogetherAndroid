@@ -1,5 +1,10 @@
 package com.alltogether.alltogetherandroid.ui.main
 
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
@@ -51,4 +56,48 @@ class MainFragment: BaseFragment<MainViewModel>() {
     override fun dataInit() {}
 
     override fun finishInit() {}
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.e("LOG", "onCreateView")
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.e("LOG", "onViewCreated")
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.e("LOG", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.e("LOG", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e("LOG", "onStop")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.e("LOG", "onDestroyVIew")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("LOG", "onDestroy")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.e("LOG", "onDetach")
+    }
 }

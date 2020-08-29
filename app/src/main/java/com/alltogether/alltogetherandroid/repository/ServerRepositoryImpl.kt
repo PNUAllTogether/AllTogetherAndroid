@@ -1,10 +1,7 @@
 package com.alltogether.alltogetherandroid.repository
 
 import com.alltogether.alltogetherandroid.api.ServerService
-import com.alltogether.alltogetherandroid.dto.checkExistUser
-import com.alltogether.alltogetherandroid.dto.parentInfo
-import com.alltogether.alltogetherandroid.dto.postInt
-import com.alltogether.alltogetherandroid.dto.supporterInfo
+import com.alltogether.alltogetherandroid.dto.*
 import io.reactivex.Single
 import okhttp3.ResponseBody
 
@@ -22,5 +19,9 @@ class ServerRepositoryImpl constructor(private val serverService: ServerService)
 
     override fun postSupporterInfo(response: supporterInfo): Single<ResponseBody> {
         return serverService.postSupporterInfo(response)
+    }
+
+    override fun filterSupporter(region: String, major: String): Single<supporterSearchResult> {
+        return serverService.filterSupporter(region, major)
     }
 }

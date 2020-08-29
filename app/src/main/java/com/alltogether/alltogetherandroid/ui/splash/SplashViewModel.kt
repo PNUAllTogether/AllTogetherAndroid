@@ -1,5 +1,6 @@
 package com.alltogether.alltogetherandroid.ui.splash
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.alltogether.alltogetherandroid.base.BaseViewModel
 import com.alltogether.alltogetherandroid.utils.SingleLiveEvent
@@ -12,5 +13,10 @@ class SplashViewModel: BaseViewModel() {
 
     fun getSplashNavigationMode() {
         _splashNavigationMain.call()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.e("LOG", "SplashViewModel onCleared")
     }
 }

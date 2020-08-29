@@ -29,4 +29,10 @@ interface ServerService {
     @Headers("Content-Type: application/json")
     @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/signup")
     fun postSupporterInfo(@Body supporterInfo: supporterInfo) : Single<ResponseBody>
+
+    @GET("/alltogetherspring-0.0.1-SNAPSHOT/v1/search/filter")
+    fun filterSupporter(
+            @Query("region") region : String,
+            @Query("major") major : String
+    ) : Single<supporterSearchResult>
 }

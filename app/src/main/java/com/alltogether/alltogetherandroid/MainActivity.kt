@@ -1,7 +1,9 @@
 package com.alltogether.alltogetherandroid
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -18,7 +20,7 @@ class MainActivity : BaseActivity<ActivityViewModel>() {
     override val layoutSource: Int
         get() = R.layout.activity_main
 
-    override val viewModel: ActivityViewModel by viewModel()
+    override val viewModel: ActivityViewModel by viewModels()
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -42,6 +44,10 @@ class MainActivity : BaseActivity<ActivityViewModel>() {
                     activity_main_toolbar.title = ""
                     activity_main_toolbar.visibility = View.VISIBLE
                 }
+                R.id.supporterSearchResultFragment -> {
+                    activity_main_toolbar.title = ""
+                    activity_main_toolbar.visibility = View.VISIBLE
+                }
                 else -> {
                     activity_main_toolbar.visibility = View.GONE
                 }
@@ -55,5 +61,15 @@ class MainActivity : BaseActivity<ActivityViewModel>() {
 
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.main_fragment_container).navigateUp(appBarConfiguration)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e("LOG", "MainActivity onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("LOG", "MainActivity onDestroy")
     }
 }
