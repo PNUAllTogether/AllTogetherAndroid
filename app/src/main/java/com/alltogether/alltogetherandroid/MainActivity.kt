@@ -48,6 +48,10 @@ class MainActivity : BaseActivity<ActivityViewModel>() {
                     activity_main_toolbar.title = ""
                     activity_main_toolbar.visibility = View.VISIBLE
                 }
+                R.id.supporterSearchDescFragment -> {
+                    activity_main_toolbar.title = ""
+                    activity_main_toolbar.visibility = View.VISIBLE
+                }
                 else -> {
                     activity_main_toolbar.visibility = View.GONE
                 }

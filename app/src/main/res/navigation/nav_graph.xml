@@ -107,5 +107,17 @@
         android:id="@+id/supporterSearchResultFragment"
         android:name="com.alltogether.alltogetherandroid.ui.main.SupporterSearchResultFragment"
         android:label="SupporterSearchResultFragment"
-        tools:layout="@layout/fragment_supporter_search_result"/>
+        tools:layout="@layout/fragment_supporter_search_result">
+        <action
+            android:id="@+id/action_supporterSearchResultFragment_to_supporterSearchDescFragment"
+            app:destination="@id/supporterSearchDescFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/supporterSearchDescFragment"
+        android:name="com.alltogether.alltogetherandroid.ui.main.SupporterSearchDescFragment"
+        android:label="SupporterSearchDescFragment" />
 </navigation>

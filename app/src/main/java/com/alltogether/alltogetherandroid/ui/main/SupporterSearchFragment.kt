@@ -1,6 +1,7 @@
 package com.alltogether.alltogetherandroid.ui.main
 
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.alltogether.alltogetherandroid.R
@@ -24,6 +25,9 @@ class SupporterSearchFragment : BaseFragment<SupporterSearchViewModel>(){
     }
 
     override fun dataInit() {
+        viewModel.onSeachFailed.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(requireContext(), "해당 조건에 맞는 전문가가 없습니다!", Toast.LENGTH_SHORT).show()
+        })
         viewModel.onSearchFinished.observe(viewLifecycleOwner, Observer {
             findNavController().navigate(R.id.action_mainFragment_to_supporterSearchResultFragment)
         })

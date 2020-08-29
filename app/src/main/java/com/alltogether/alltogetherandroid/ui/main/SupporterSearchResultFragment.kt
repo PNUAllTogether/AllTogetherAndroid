@@ -1,6 +1,7 @@
 package com.alltogether.alltogetherandroid.ui.main
 
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
@@ -31,7 +32,8 @@ class SupporterSearchResultFragment : BaseFragment<SupporterSearchViewModel>(){
 
     private val itemClick = object : SupporterSearchResultAdapter.OnItemClickListener {
         override fun onItemClick(v: View, position: Int) {
-
+            viewModel.selectedSupporter = viewModel.supporterList?.get(position)
+            findNavController().navigate(R.id.action_supporterSearchResultFragment_to_supporterSearchDescFragment)
         }
     }
 }

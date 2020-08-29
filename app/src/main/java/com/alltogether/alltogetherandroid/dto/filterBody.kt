@@ -34,7 +34,7 @@ data class filterBody(
     @SerializedName("age")
     @Expose
     val age: String,
-    @SerializedName("officeTime")
+    @SerializedName("office_time")
     @Expose
     val officeTime: String,
     @SerializedName("department")
