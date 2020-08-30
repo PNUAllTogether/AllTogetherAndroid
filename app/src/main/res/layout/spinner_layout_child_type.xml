@@ -7,5 +7,5 @@
     android:textSize="14sp"
     android:paddingHorizontal="20dp"
     android:paddingVertical="12dp"
-    android:background="@color/white"
+    android:background="@color/box_grey"
     android:gravity="center_vertical|start"/>
