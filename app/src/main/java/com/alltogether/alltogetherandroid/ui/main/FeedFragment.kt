@@ -2,6 +2,7 @@ package com.alltogether.alltogetherandroid.ui.main
 
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
@@ -19,7 +20,6 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
     private lateinit var check_adapter: FeedListAdapter
 
     override fun viewInit() {
-
     }
 
     override fun dataInit() {
@@ -35,6 +35,9 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
         mainViewModel.getChildFinished.observe(viewLifecycleOwner, Observer {
             viewModel.currentSupporter(mainViewModel.childInfo!!.childId)
             viewModel.getAllCheckList(mainViewModel.childInfo!!.childId)
+        })
+        viewModel.onDoneFinished.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(requireContext(), "체크리스트", Toast.LENGTH_SHORT).show()
         })
     }
 

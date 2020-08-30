@@ -17,6 +17,8 @@ class FeedViewModel(private val serverRepository: ServerRepository) : BaseViewMo
     val onGetCheckListFinished: LiveData<Any> get() = _onGetCheckListFinished
     private val _onAddFinished: SingleLiveEvent<Any> = SingleLiveEvent()
     val onAddFinished: LiveData<Any> get() = _onAddFinished
+    private val _onDoneFinished: SingleLiveEvent<Any> = SingleLiveEvent()
+    val onDoneFinished: LiveData<Any> get() = _onDoneFinished
 
     var supporterList: ArrayList<filterBody>? = null
     var checkList: ArrayList<list>? = null
@@ -48,6 +50,13 @@ class FeedViewModel(private val serverRepository: ServerRepository) : BaseViewMo
         apiCall(serverRepository.addCheckList(childId!!, date, content),
         onSuccess = Consumer {
             getAllCheckList(childId!!)
+        })
+    }
+
+    fun addDone(itemId: Int, done: Boolean) {
+        apiCall(serverRepository.addDone(childId!!, itemId, done),
+        onSuccess = Consumer {
+            _onDoneFinished.call()
         })
     }
 }

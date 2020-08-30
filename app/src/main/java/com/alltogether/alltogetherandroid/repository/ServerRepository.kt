@@ -16,4 +16,5 @@ interface ServerRepository {
     fun currentSupporter(childId: Int) : Single<supporterSearchResult>
     fun getAllCheckList(childId: Int) : Single<getCheckListResult>
     fun addCheckList(childId: Int, date: String, content: String) : Single<getCheckListResult>
+    fun addDone(childId: Int, itemId: Int, done: Boolean) : Single<getCheckListResult>
 }

@@ -9,8 +9,8 @@ data class postDone (
     val childId: Int,
     @SerializedName("itemId")
     @Expose
-    val itemId: String,
+    val itemId: Int,
     @SerializedName("done")
     @Expose
-    val done: String
+    val done: Boolean
 )

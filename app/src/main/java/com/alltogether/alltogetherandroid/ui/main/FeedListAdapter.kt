@@ -31,8 +31,11 @@ class FeedListAdapter(private val list: ArrayList<list>, private val viewModel: 
     override fun onBindViewHolder(holder: FeedListAdapter.ViewHolder, position: Int) {
         Log.e("LOG", "onBingViewHolder of position $position is called!!")
         list[position].let { item ->
+            if(position != 0){
+                holder.feed_item_add.visibility = View.GONE
+            }
             val checklist = ArrayList(item.check_list)
-            holder.feed_item_check_list.adapter = FeedCheckListAdapter(checklist)
+            holder.feed_item_check_list.adapter = FeedCheckListAdapter(checklist, viewModel)
             holder.feed_date.text = SimpleDateFormat("MM월 dd일").format(SimpleDateFormat("yyyy-MM-dd").parse(item.date))
             holder.feed_item_add.setOnClickListener {
                 holder.feed_item_add_selector.visibility = View.VISIBLE

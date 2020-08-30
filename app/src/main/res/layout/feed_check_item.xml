@@ -9,8 +9,17 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="아동의 목표"
-        android:padding="10dp"
         style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton"
         />
+    <TextView
+        android:id="@+id/check_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/check_item_radio"
+        app:layout_constraintTop_toTopOf="@+id/check_item_radio"
+        app:layout_constraintBottom_toBottomOf="@+id/check_item_radio"
+        android:layout_marginStart="10dp"
+        android:text="아동의 목표"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

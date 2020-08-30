@@ -44,4 +44,8 @@ class ServerRepositoryImpl constructor(private val serverService: ServerService)
     override fun addCheckList(childId: Int, date: String, content: String): Single<getCheckListResult> {
         return serverService.addCheckList(postCheckList(childId, date, content))
     }
+
+    override fun addDone(childId: Int, itemId: Int, done: Boolean): Single<getCheckListResult> {
+        return serverService.addDone(postDone(childId, itemId , done))
+    }
 }
