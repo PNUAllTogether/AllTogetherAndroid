@@ -57,4 +57,8 @@ interface ServerService {
     @Headers("Content-Type: application/json")
     @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/check-list/done")
     fun addDone(@Body id : postDone) : Single<getCheckListResult>
+
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/check-list/delete")
+    fun delete(@Body id : postDelete) : Single<getCheckListResult>
 }

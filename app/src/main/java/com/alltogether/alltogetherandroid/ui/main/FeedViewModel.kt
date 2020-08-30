@@ -59,4 +59,11 @@ class FeedViewModel(private val serverRepository: ServerRepository) : BaseViewMo
             _onDoneFinished.call()
         })
     }
+
+    fun delete(itemId: Int) {
+        apiCall(serverRepository.postDelete(childId!!, itemId),
+        onSuccess = Consumer {
+            getAllCheckList(childId!!)
+        })
+    }
 }

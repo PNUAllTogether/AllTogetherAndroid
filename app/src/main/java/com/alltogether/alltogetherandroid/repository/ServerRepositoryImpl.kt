@@ -48,4 +48,8 @@ class ServerRepositoryImpl constructor(private val serverService: ServerService)
     override fun addDone(childId: Int, itemId: Int, done: Boolean): Single<getCheckListResult> {
         return serverService.addDone(postDone(childId, itemId , done))
     }
+
+    override fun postDelete(childId: Int, itemId: Int): Single<getCheckListResult> {
+        return serverService.delete(com.alltogether.alltogetherandroid.dto.postDelete(childId, itemId))
+    }
 }

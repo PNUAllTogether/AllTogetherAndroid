@@ -58,6 +58,9 @@ class FeedCheckListAdapter(
                     }
                 }
             }
+            holder.check_item_delete.setOnClickListener {
+                viewModel.delete(item.itemId)
+            }
         }
     }
 }

@@ -17,4 +17,5 @@ interface ServerRepository {
     fun getAllCheckList(childId: Int) : Single<getCheckListResult>
     fun addCheckList(childId: Int, date: String, content: String) : Single<getCheckListResult>
     fun addDone(childId: Int, itemId: Int, done: Boolean) : Single<getCheckListResult>
+    fun postDelete(childId: Int, itemId: Int) : Single<getCheckListResult>
 }
