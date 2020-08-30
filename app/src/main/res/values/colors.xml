@@ -13,4 +13,5 @@
     <color name="dark_blue_grey">#434348</color>
     <color name="p_light_gray">#b7b7b7</color>
     <color name="s_textBlack">#212121</color>
+    <color name="transparent">#00000000</color>
 </resources>

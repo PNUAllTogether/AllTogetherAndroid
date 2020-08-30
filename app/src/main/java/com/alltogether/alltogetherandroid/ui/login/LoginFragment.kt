@@ -1,5 +1,6 @@
 package com.alltogether.alltogetherandroid.ui.login
 
+import com.alltogether.alltogetherandroid.ActivityViewModel
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
 import com.alltogether.alltogetherandroid.utils.sharedGraphViewModel
@@ -12,6 +13,7 @@ class LoginFragment : BaseFragment<LoginViewModel>() {
     override val layoutSource: Int
         get() = R.layout.fragment_login
     override val viewModel: LoginViewModel by sharedGraphViewModel(R.id.nav_graph)
+    private val activityViewModel : ActivityViewModel by sharedViewModel()
 
     override fun viewInit() {
         login_naver_button.setOnClickListener {

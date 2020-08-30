@@ -1,9 +1,6 @@
 package com.alltogether.alltogetherandroid.repository
 
-import com.alltogether.alltogetherandroid.dto.checkExistUser
-import com.alltogether.alltogetherandroid.dto.parentInfo
-import com.alltogether.alltogetherandroid.dto.supporterInfo
-import com.alltogether.alltogetherandroid.dto.supporterSearchResult
+import com.alltogether.alltogetherandroid.dto.*
 import io.reactivex.Single
 import okhttp3.ResponseBody
 
@@ -14,4 +11,7 @@ interface ServerRepository {
     fun postParentInfo(response : parentInfo) : Single<ResponseBody>
     fun postSupporterInfo(response : supporterInfo) : Single<ResponseBody>
     fun filterSupporter(region : String, major : String) : Single<supporterSearchResult>
+    fun getChildInfo(id : Int) : Single<getChildInfoResult>
+    fun addSupporter(childId: Int, supporterId: Int) : Single<addSupporterResult>
+    fun currentSupporter(childId: Int) : Single<supporterSearchResult>
 }

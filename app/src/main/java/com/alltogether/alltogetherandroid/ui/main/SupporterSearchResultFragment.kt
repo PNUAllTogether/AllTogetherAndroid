@@ -1,6 +1,8 @@
 package com.alltogether.alltogetherandroid.ui.main
 
 import android.view.View
+import androidx.core.view.doOnPreDraw
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.alltogether.alltogetherandroid.R
@@ -16,6 +18,9 @@ class SupporterSearchResultFragment : BaseFragment<SupporterSearchViewModel>(){
     private lateinit var adapter: SupporterSearchResultAdapter
 
     override fun viewInit() {
+        postponeEnterTransition()
+        view?.doOnPreDraw { startPostponedEnterTransition() }
+
         adapter = SupporterSearchResultAdapter(viewModel.supporterList!!, itemClick)
         supporter_search_result_list.adapter = adapter
         supporter_search_result_list.layoutManager = GridLayoutManager(requireContext(), 2)
@@ -33,7 +38,8 @@ class SupporterSearchResultFragment : BaseFragment<SupporterSearchViewModel>(){
     private val itemClick = object : SupporterSearchResultAdapter.OnItemClickListener {
         override fun onItemClick(v: View, position: Int) {
             viewModel.selectedSupporter = viewModel.supporterList?.get(position)
-            findNavController().navigate(R.id.action_supporterSearchResultFragment_to_supporterSearchDescFragment)
+            findNavController().navigate(SupporterSearchResultFragmentDirections.actionSupporterSearchResultFragmentToSupporterSearchDescFragment(),
+                FragmentNavigatorExtras(v to viewModel.selectedSupporter?.id.toString()))
         }
     }
 }

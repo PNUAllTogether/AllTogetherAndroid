@@ -20,7 +20,7 @@ class MainActivity : BaseActivity<ActivityViewModel>() {
     override val layoutSource: Int
         get() = R.layout.activity_main
 
-    override val viewModel: ActivityViewModel by viewModels()
+    override val viewModel: ActivityViewModel by viewModel()
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 

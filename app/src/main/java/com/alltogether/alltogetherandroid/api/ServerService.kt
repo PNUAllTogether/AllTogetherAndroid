@@ -35,4 +35,16 @@ interface ServerService {
             @Query("region") region : String,
             @Query("major") major : String
     ) : Single<supporterSearchResult>
+
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/child/info")
+    fun getChildInfo(@Body id : postInt) : Single<getChildInfoResult>
+
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/child/add-supporter")
+    fun addSupporter(@Body id : postAddSupporter) : Single<addSupporterResult>
+
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/child/members")
+    fun currentSupporter(@Body id : postChild) : Single<supporterSearchResult>
 }

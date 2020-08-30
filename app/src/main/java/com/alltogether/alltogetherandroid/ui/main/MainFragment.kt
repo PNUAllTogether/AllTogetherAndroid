@@ -5,18 +5,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
+import com.alltogether.alltogetherandroid.ActivityViewModel
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_main.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment: BaseFragment<MainViewModel>() {
     override val layoutSource: Int
         get() = R.layout.fragment_main
-    override val viewModel: MainViewModel by viewModel()
+    override val viewModel: MainViewModel by sharedViewModel()
+    private val activityViewModel : ActivityViewModel by sharedViewModel()
 
     private var viewPager: ViewPager2? = null
     private var viewPagerAdapter: MainAdapter? = null
@@ -25,6 +29,7 @@ class MainFragment: BaseFragment<MainViewModel>() {
     private val ic_list_selected = listOf(R.drawable.ic_feed_enabled, R.drawable.ic_sup_enabled, R.drawable.ic_community_enabled, R.drawable.ic_alarm_enabled, R.drawable.ic_gift_enabled)
 
     override fun viewInit() {
+        viewModel.getChildInfo(activityViewModel.userID)
         fragment_main_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab!!.setIcon(ic_list_selected[tab.position])
@@ -53,7 +58,11 @@ class MainFragment: BaseFragment<MainViewModel>() {
         }.attach()
     }
 
-    override fun dataInit() {}
+    override fun dataInit() {
+        viewModel.moveTo.observe(viewLifecycleOwner, Observer {
+            viewPager!!.setCurrentItem(it, true)
+        })
+    }
 
     override fun finishInit() {}
 

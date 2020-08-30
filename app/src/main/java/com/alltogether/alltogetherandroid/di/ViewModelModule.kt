@@ -18,10 +18,10 @@ val viewModelModule = module {
         ActivityViewModel()
     }
     viewModel {
-        MainViewModel()
+        MainViewModel(get())
     }
     viewModel {
-        FeedViewModel()
+        FeedViewModel(get())
     }
     viewModel {
         SupporterSearchViewModel(get())

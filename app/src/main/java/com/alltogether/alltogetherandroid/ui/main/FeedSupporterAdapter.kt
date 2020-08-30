@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.dto.filterBody
-import com.alltogether.alltogetherandroid.dto.supporterSearchResult
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.supporter_search_result_item.*
+import kotlinx.android.synthetic.main.feed_supporter_item.*
 
-class SupporterSearchResultAdapter(private val supporterList: ArrayList<filterBody>,
-                                   private val listener: OnItemClickListener): RecyclerView.Adapter<SupporterSearchResultAdapter.ViewHolder>() {
+class FeedSupporterAdapter(private val supporterList: ArrayList<filterBody>,
+                           private val listener: OnItemClickListener
+) : RecyclerView.Adapter<FeedSupporterAdapter.ViewHolder>(){
     interface OnItemClickListener {
         fun onItemClick(v: View, position: Int)
     }
@@ -24,29 +24,26 @@ class SupporterSearchResultAdapter(private val supporterList: ArrayList<filterBo
             get() = view
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.supporter_search_result_item, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedSupporterAdapter.ViewHolder {
+        return FeedSupporterAdapter.ViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.feed_supporter_item, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
         return supporterList.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FeedSupporterAdapter.ViewHolder, position: Int) {
         Log.e("LOG", "onBingViewHolder of position $position is called!!")
         supporterList[position].let { item ->
             if(item.image != null) {
-                holder.supporter_profile_image.load(item.image)
+                holder.feed_supporter_item_image.load(item.image)
             }
-            holder.supporter_name.text = item.name
-            holder.supporter_major.text = item.major
             holder.view.setOnClickListener {
                 listener.onItemClick(holder.itemView, position)
             }
-            ViewCompat.setTransitionName(holder.item_container, item.id.toString())
         }
-
     }
-
-
 }

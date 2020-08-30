@@ -24,4 +24,16 @@ class ServerRepositoryImpl constructor(private val serverService: ServerService)
     override fun filterSupporter(region: String, major: String): Single<supporterSearchResult> {
         return serverService.filterSupporter(region, major)
     }
+
+    override fun getChildInfo(id: Int): Single<getChildInfoResult> {
+        return serverService.getChildInfo(postInt(id))
+    }
+
+    override fun addSupporter(childId: Int, supporterId: Int): Single<addSupporterResult> {
+        return serverService.addSupporter(postAddSupporter(childId, supporterId))
+    }
+
+    override fun currentSupporter(childId: Int): Single<supporterSearchResult> {
+        return serverService.currentSupporter(postChild(childId))
+    }
 }

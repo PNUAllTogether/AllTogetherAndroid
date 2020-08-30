@@ -3,15 +3,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
     <TextView
+        android:id="@+id/feed_member_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="전문가"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        />
+    <ImageView
+        android:id="@+id/add_supporter_button"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_add_circle"
+        app:layout_constraintStart_toStartOf="@+id/feed_member_title"
+        app:layout_constraintTop_toBottomOf="@+id/feed_member_title"
+        android:layout_marginTop="20dp"
+        android:paddingVertical="5dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feed_supporter_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/add_supporter_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/add_supporter_button"
+        android:layout_marginEnd="24dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/feed_supporter_item"
+        android:layout_marginStart="5dp"
+        />
+    <TextView
+        android:id="@+id/feed_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="피드"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        app:layout_constraintStart_toStartOf="@+id/feed_member_title"
+        app:layout_constraintTop_toBottomOf="@+id/add_supporter_button"
+        android:layout_marginTop="30dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feed_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@+id/feed_content_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feed_content_title"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="FEED"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
