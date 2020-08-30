@@ -29,6 +29,7 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
             Log.e("LOG", viewModel.supporterList!!.toString())
         })
         viewModel.onGetCheckListFinished.observe(viewLifecycleOwner, Observer {
+            feed_content_swipe.isRefreshing = false
             check_adapter = FeedListAdapter(viewModel.checkList!!, viewModel)
             feed_content.adapter = check_adapter
         })
@@ -42,6 +43,9 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
     }
 
     override fun finishInit() {
+        feed_content_swipe.setOnRefreshListener {
+            viewModel.getAllCheckList(mainViewModel.childInfo!!.childId)
+        }
         add_supporter_button.setOnClickListener {
             mainViewModel.moveToSpecificPosition(1)
         }

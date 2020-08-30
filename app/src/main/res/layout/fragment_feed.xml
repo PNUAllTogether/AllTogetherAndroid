@@ -9,7 +9,7 @@
         android:id="@+id/feed_member_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="전문가"
+        android:text="구성원"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="19sp"
@@ -53,8 +53,8 @@
         app:layout_constraintTop_toBottomOf="@+id/add_supporter_button"
         android:layout_marginTop="30dp"
         />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/feed_content"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/feed_content_swipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,9 +63,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        tools:listitem="@layout/feed_item"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        android:layout_marginEnd="14dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feed_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/feed_item"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
