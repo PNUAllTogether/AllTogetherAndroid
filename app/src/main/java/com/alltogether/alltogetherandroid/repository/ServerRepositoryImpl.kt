@@ -36,4 +36,12 @@ class ServerRepositoryImpl constructor(private val serverService: ServerService)
     override fun currentSupporter(childId: Int): Single<supporterSearchResult> {
         return serverService.currentSupporter(postChild(childId))
     }
+
+    override fun getAllCheckList(childId: Int): Single<getCheckListResult> {
+        return serverService.getAllCheckList(postChild(childId))
+    }
+
+    override fun addCheckList(childId: Int, date: String, content: String): Single<getCheckListResult> {
+        return serverService.addCheckList(postCheckList(childId, date, content))
+    }
 }

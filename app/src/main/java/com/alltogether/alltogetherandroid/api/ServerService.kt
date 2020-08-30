@@ -1,8 +1,6 @@
 package com.alltogether.alltogetherandroid.api
 
 import com.alltogether.alltogetherandroid.dto.*
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
 import io.reactivex.Single
 import okhttp3.ResponseBody
 import retrofit2.http.*
@@ -47,4 +45,16 @@ interface ServerService {
     @Headers("Content-Type: application/json")
     @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/child/members")
     fun currentSupporter(@Body id : postChild) : Single<supporterSearchResult>
+
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/check-list")
+    fun getAllCheckList(@Body id : postChild) : Single<getCheckListResult>
+
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/check-list/insert")
+    fun addCheckList(@Body id : postCheckList) : Single<getCheckListResult>
+
+    @Headers("Content-Type: application/json")
+    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/check-list/done")
+    fun addDone(@Body id : postDone) : Single<getCheckListResult>
 }

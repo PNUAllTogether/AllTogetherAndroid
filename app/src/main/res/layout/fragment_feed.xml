@@ -57,12 +57,15 @@
         android:id="@+id/feed_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@+id/feed_content_title"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/feed_content_title"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        tools:listitem="@layout/feed_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

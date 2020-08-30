@@ -181,7 +181,6 @@
                 android:layout_height="100dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:inputType="text"
                 android:drawablePadding="12dp"
                 android:hint="아동의 특성을 입력해주세요."
                 android:gravity="top|start"

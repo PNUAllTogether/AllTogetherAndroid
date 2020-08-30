@@ -47,6 +47,7 @@ class MainFragment: BaseFragment<MainViewModel>() {
             offscreenPageLimit = 3
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
             adapter = viewPagerAdapter
+            isUserInputEnabled = false
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int){
                     //DO NOTHING

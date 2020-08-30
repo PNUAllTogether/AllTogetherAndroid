@@ -14,4 +14,6 @@ interface ServerRepository {
     fun getChildInfo(id : Int) : Single<getChildInfoResult>
     fun addSupporter(childId: Int, supporterId: Int) : Single<addSupporterResult>
     fun currentSupporter(childId: Int) : Single<supporterSearchResult>
+    fun getAllCheckList(childId: Int) : Single<getCheckListResult>
+    fun addCheckList(childId: Int, date: String, content: String) : Single<getCheckListResult>
 }

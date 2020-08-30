@@ -16,6 +16,7 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
     private val mainViewModel: MainViewModel by sharedViewModel()
 
     private lateinit var adapter: FeedSupporterAdapter
+    private lateinit var check_adapter: FeedListAdapter
 
     override fun viewInit() {
 
@@ -27,8 +28,13 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
             feed_supporter_list.adapter = adapter
             Log.e("LOG", viewModel.supporterList!!.toString())
         })
+        viewModel.onGetCheckListFinished.observe(viewLifecycleOwner, Observer {
+            check_adapter = FeedListAdapter(viewModel.checkList!!, viewModel)
+            feed_content.adapter = check_adapter
+        })
         mainViewModel.getChildFinished.observe(viewLifecycleOwner, Observer {
             viewModel.currentSupporter(mainViewModel.childInfo!!.childId)
+            viewModel.getAllCheckList(mainViewModel.childInfo!!.childId)
         })
     }
 
