@@ -3,6 +3,7 @@ package com.alltogether.alltogetherandroid.ui.signup
 import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
 import com.alltogether.alltogetherandroid.ui.login.LoginViewModel
@@ -53,6 +54,7 @@ class FragmentSignupParentChildInfo : BaseFragment<LoginViewModel>() {
         })
         viewModel.isPostFinished.observe(viewLifecycleOwner, Observer {
             Log.e("LOG", "post parent info finished")
+            findNavController().navigate(R.id.action_fragmentSignupParentChildInfo_to_mainFragment)
         })
     }
 

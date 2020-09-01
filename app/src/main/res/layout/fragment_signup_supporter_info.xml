@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/login_welcome_text" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/supporter_name_input_selector"
+            android:id="@+id/supporter_age_input_selector"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -50,34 +50,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/supporter_info_title"
             app:layout_constraintTop_toBottomOf="@id/supporter_info_title">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/supporter_name_input_edit"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/box_8rad_grey_fill"
-                android:clickable="true"
-                android:drawablePadding="12dp"
-                android:focusable="true"
-                android:hint="이름을 입력해주세요."
-                android:inputType="text"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="@color/s_textBlack"
-                android:textColorHint="@color/p_light_gray"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/supporter_age_input_selector"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/supporter_name_input_selector"
-            app:layout_constraintTop_toBottomOf="@id/supporter_name_input_selector">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/supporter_age_input_edit"
@@ -106,6 +78,18 @@
             app:layout_constraintTop_toBottomOf="@+id/supporter_age_input_selector"
             app:layout_constraintVertical_bias="0.01" />
 
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/supporter_region_input_spinner"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="34dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/box_8rad_grey_fill"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/supporter_gender_input_spinner"
+            app:layout_constraintVertical_bias="0.01" />
+
         <TextView
             android:id="@+id/supporter_major_input_title"
             android:layout_width="wrap_content"
@@ -114,8 +98,8 @@
             android:text="전문분야"
             android:textColor="@color/dark_blue_grey"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/supporter_gender_input_spinner"
-            app:layout_constraintTop_toBottomOf="@+id/supporter_gender_input_spinner" />
+            app:layout_constraintStart_toStartOf="@+id/supporter_region_input_spinner"
+            app:layout_constraintTop_toBottomOf="@+id/supporter_region_input_spinner" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/supporter_major_input_selector"
@@ -125,8 +109,8 @@
             android:layout_marginEnd="24dp"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/supporter_job_input_title"
-            app:layout_constraintTop_toBottomOf="@id/supporter_job_input_title">
+            app:layout_constraintStart_toStartOf="@+id/supporter_major_input_title"
+            app:layout_constraintTop_toBottomOf="@id/supporter_major_input_title">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/supporter_major_input_edit"
@@ -135,7 +119,61 @@
                 android:background="@drawable/box_8rad_grey_fill"
                 android:drawablePadding="12dp"
                 android:hint="전공을 입력해주세요."
-                android:inputType="number"
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/s_textBlack"
+                android:textColorHint="@color/p_light_gray"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/supporter_department_input_selector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/supporter_major_input_selector"
+            app:layout_constraintTop_toBottomOf="@id/supporter_major_input_selector">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/supporter_department_input_edit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/box_8rad_grey_fill"
+                android:drawablePadding="12dp"
+                android:hint="소속 기관을 입력해주세요."
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/s_textBlack"
+                android:textColorHint="@color/p_light_gray"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/supporter_experience_input_selector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/supporter_department_input_selector"
+            app:layout_constraintTop_toBottomOf="@id/supporter_department_input_selector">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/supporter_experience_input_edit"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/box_8rad_grey_fill"
+                android:drawablePadding="12dp"
+                android:gravity="top|start"
+                android:hint="자신의 경력사항을 입력해주세요."
+                android:inputType="text"
+                android:padding="14dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:textColor="@color/s_textBlack"
@@ -151,8 +189,8 @@
             android:text="연락가능 시간"
             android:textColor="@color/dark_blue_grey"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/supporter_major_input_selector"
-            app:layout_constraintTop_toBottomOf="@+id/supporter_major_input_selector" />
+            app:layout_constraintStart_toStartOf="@+id/supporter_experience_input_selector"
+            app:layout_constraintTop_toBottomOf="@+id/supporter_experience_input_selector" />
 
         <TimePicker
             android:id="@+id/supporter_office_hour_from_picker"
@@ -161,8 +199,8 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_grey_round"
             android:timePickerMode="spinner"
-            app:layout_constraintEnd_toEndOf="@id/supporter_name_input_selector"
-            app:layout_constraintStart_toStartOf="@id/supporter_name_input_selector"
+            app:layout_constraintEnd_toEndOf="@id/supporter_department_input_selector"
+            app:layout_constraintStart_toStartOf="@id/supporter_department_input_selector"
             app:layout_constraintTop_toBottomOf="@id/supporter_office_hour_input_title" />
 
         <TextView
@@ -181,32 +219,9 @@
             android:layout_height="80dp"
             android:background="@drawable/bg_grey_round"
             android:timePickerMode="spinner"
-            app:layout_constraintEnd_toEndOf="@id/supporter_name_input_selector"
-            app:layout_constraintStart_toStartOf="@id/supporter_name_input_selector"
+            app:layout_constraintEnd_toEndOf="@id/supporter_office_hour_from_picker"
+            app:layout_constraintStart_toStartOf="@id/supporter_office_hour_from_picker"
             app:layout_constraintTop_toBottomOf="@id/supporter_office_hour_divider" />
-
-        <TextView
-            android:id="@+id/supporter_wish_input_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="희망장애유형"
-            android:textColor="@color/dark_blue_grey"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/supporter_major_input_selector"
-            app:layout_constraintTop_toBottomOf="@+id/supporter_office_hour_to_picker" />
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/supporter_wish_input_spinner"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="34dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/box_8rad_grey_fill"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/supporter_wish_input_title"
-            app:layout_constraintVertical_bias="0.01" />
 
         <TextView
             android:id="@+id/supporter_additional_input_title"
@@ -216,11 +231,11 @@
             android:text="추가정보"
             android:textColor="@color/dark_blue_grey"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/supporter_wish_input_spinner"
-            app:layout_constraintTop_toBottomOf="@+id/supporter_wish_input_spinner" />
+            app:layout_constraintStart_toStartOf="@+id/supporter_office_hour_to_picker"
+            app:layout_constraintTop_toBottomOf="@+id/supporter_office_hour_to_picker" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/supporter_character_input_selector"
+            android:id="@+id/supporter_speciality_input_selector"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -231,7 +246,7 @@
             app:layout_constraintTop_toBottomOf="@id/supporter_additional_input_title">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/supporter_character_input_edit"
+                android:id="@+id/supporter_speciality_input_edit"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/box_8rad_grey_fill"
@@ -255,8 +270,8 @@
             android:layout_marginEnd="24dp"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/supporter_character_input_selector"
-            app:layout_constraintTop_toBottomOf="@id/supporter_character_input_selector">
+            app:layout_constraintStart_toStartOf="@+id/supporter_speciality_input_selector"
+            app:layout_constraintTop_toBottomOf="@id/supporter_speciality_input_selector">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/supporter_introduce_input_edit"
@@ -313,9 +328,9 @@
             android:text="완료"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/supporter_cost_input_selector" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
