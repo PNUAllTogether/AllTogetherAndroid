@@ -72,6 +72,74 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <TextView
+        android:id="@+id/feed_empty_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="피드가 비었어요!"
+        android:textColor="@color/dark_blue_grey"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feed_content_title"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/feed_empty_selector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="24dp"
+        app:hintEnabled="false"
+        app:layout_constraintHorizontal_weight="0.8"
+        app:layout_constraintTop_toBottomOf="@id/feed_empty_title"
+        app:layout_constraintStart_toStartOf="@+id/feed_content_title"
+        app:layout_constraintEnd_toStartOf="@+id/feed_empty_add_button"
+        android:visibility="gone"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/feed_empty_edit"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="text"
+            android:drawablePadding="12dp"
+            android:hint="추가할 사항을 입력해주세요."
+            android:textColorHint="@color/p_light_gray"
+            android:textColor="@color/s_textBlack"
+            android:textSize="14sp"
+            android:background="@drawable/box_8rad_grey_fill"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/feed_empty_add_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/box_fill_blue_rad_6dp"
+        android:visibility="gone"
+        android:text="추가"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_weight="0.2"
+        app:layout_constraintTop_toTopOf="@+id/feed_empty_selector"
+        app:layout_constraintBottom_toBottomOf="@+id/feed_empty_selector"
+        app:layout_constraintStart_toEndOf="@+id/feed_empty_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/feed_fab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:rippleColor="@color/p_light_gray"
+        android:background="@color/theme_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_baby"
+        android:layout_margin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
