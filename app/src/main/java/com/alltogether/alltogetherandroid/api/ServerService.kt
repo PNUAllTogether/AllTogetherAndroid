@@ -20,13 +20,13 @@ interface ServerService {
 //    @Headers("Content-Type: application/json")
 //    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/signup")
 //    fun postUserInfo(@Body userInfo: userInfo) : Single<ResponseBody>
-    @Headers("Content-Type: application/json")
-    @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/signup")
-    fun postParentInfo(@Body parentInfo: parentInfo) : Single<ResponseBody>
+@Headers("Content-Type: application/json")
+@POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/signup")
+fun postParentInfo(@Body parentInfo: ParentInfo): Single<ResponseBody>
 
     @Headers("Content-Type: application/json")
     @POST("/alltogetherspring-0.0.1-SNAPSHOT/v1/user/signup")
-    fun postSupporterInfo(@Body supporterInfo: supporterInfo) : Single<ResponseBody>
+    fun postSupporterInfo(@Body supporterInfo: SupporterInfo): Single<ResponseBody>
 
     @GET("/alltogetherspring-0.0.1-SNAPSHOT/v1/search/filter")
     fun filterSupporter(
