@@ -10,6 +10,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
 import com.alltogether.alltogetherandroid.utils.setErrorMessage
@@ -80,6 +81,15 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
         feed_fab.setOnClickListener {
             childInfoDialogFragment.show(childFragmentManager, "childInfo")
         }
+        feed_content.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 0 || dy < 0 && feed_fab.isShown) feed_fab.hide()
+            }
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) feed_fab.show()
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+        })
     }
 
     private val itemClick = object : FeedSupporterAdapter.OnItemClickListener {
