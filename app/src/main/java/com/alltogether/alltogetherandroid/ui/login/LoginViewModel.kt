@@ -95,6 +95,7 @@ class LoginViewModel(private val loginModule: OAuthLogin, private val naverOAuth
         } else if (cost == null || cost.isEmpty()) {
             _onSupporterCostError.postValue("비용을 입력해주세요!")
         } else {
+            usertype = userType.supporter
             postSupporterInfo(
                 SupporterInfo(
                     email = email,

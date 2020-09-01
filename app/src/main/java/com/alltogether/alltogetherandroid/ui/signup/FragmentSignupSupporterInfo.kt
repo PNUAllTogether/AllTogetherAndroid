@@ -3,6 +3,7 @@ package com.alltogether.alltogetherandroid.ui.signup
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.alltogether.alltogetherandroid.ActivityViewModel
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
 import com.alltogether.alltogetherandroid.ui.login.LoginViewModel
@@ -11,12 +12,14 @@ import com.alltogether.alltogetherandroid.utils.setTextInputErrorAction
 import com.alltogether.alltogetherandroid.utils.sharedGraphViewModel
 import kotlinx.android.synthetic.main.fragment_signup_parent_child_info.*
 import kotlinx.android.synthetic.main.fragment_signup_supporter_info.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FragmentSignupSupporterInfo: BaseFragment<LoginViewModel>() {
     override val layoutSource: Int
         get() = R.layout.fragment_signup_supporter_info
 
     override val viewModel: LoginViewModel by sharedGraphViewModel(R.id.nav_graph)
+    val activityViewModel: ActivityViewModel by sharedViewModel()
 
     private var fromTime: String? = null
     private var toTime: String? = null
@@ -95,6 +98,8 @@ class FragmentSignupSupporterInfo: BaseFragment<LoginViewModel>() {
             supporter_speciality_input_edit.text?.clear()
         })
         viewModel.isPostFinished.observe(viewLifecycleOwner, Observer {
+            activityViewModel.userID = viewModel.id
+            activityViewModel.userType = viewModel.usertype
             findNavController().navigate(R.id.action_fragmentSignupSupporterInfo_to_mainFragment)
         })
     }

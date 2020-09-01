@@ -55,7 +55,7 @@
         <action
             android:id="@+id/action_fragmentSignupParentChildInfo_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popUpTo="@id/fragmentSignupParentChildInfo"
+            app:popUpTo="@id/fragmentSelectUser"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -112,7 +112,7 @@
         <action
             android:id="@+id/action_fragmentSignupSupporterInfo_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popUpTo="@id/fragmentSignupSupporterInfo"
+            app:popUpTo="@id/fragmentSelectUser"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
