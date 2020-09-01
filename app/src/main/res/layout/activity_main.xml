@@ -13,7 +13,7 @@
         android:id="@+id/activity_main_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/theme_blue"
         app:theme="@style/ToolbarTheme"
         android:visibility="gone">
 

@@ -3,6 +3,7 @@ package com.alltogether.alltogetherandroid.ui.signup
 import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
+import com.alltogether.alltogetherandroid.ActivityViewModel
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
 import com.alltogether.alltogetherandroid.ui.login.LoginViewModel
@@ -17,6 +18,7 @@ class FragmentSignupParentChildInfo : BaseFragment<LoginViewModel>() {
     override val layoutSource: Int
         get() = R.layout.fragment_signup_parent_child_info
     override val viewModel: LoginViewModel by sharedGraphViewModel(R.id.nav_graph)
+    val activityViewModel: ActivityViewModel by sharedViewModel()
 
     override fun viewInit() {
         val childTypeAdapter: ArrayAdapter<*> = ArrayAdapter(requireContext(),
@@ -52,6 +54,8 @@ class FragmentSignupParentChildInfo : BaseFragment<LoginViewModel>() {
             child_character_input_edit.text?.clear()
         })
         viewModel.isPostFinished.observe(viewLifecycleOwner, Observer {
+            activityViewModel.userID = viewModel.id
+            activityViewModel.userType = viewModel.usertype
             Log.e("LOG", "post parent info finished")
         })
     }

@@ -28,6 +28,8 @@ class MainActivity : BaseActivity<ActivityViewModel>() {
         val navHost = main_fragment_container as NavHostFragment
         val navController = navHost.navController
 
+        //window.statusBarColor = baseContext.getColor(R.color.white)
+
         setSupportActionBar(activity_main_toolbar)
 
         appBarConfiguration = AppBarConfiguration(

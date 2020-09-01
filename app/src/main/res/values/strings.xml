@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AllTogether</string>
+    <string name="app_name">올투게더</string>
 
     <string-array name="supporter_gender">
         <item>여성</item>

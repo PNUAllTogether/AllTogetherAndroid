@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/fragment_main_view_pager"
@@ -19,9 +20,9 @@
         android:id="@+id/fragment_main_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@color/white"
         android:elevation="12dp"
-        app:tabBackground="@color/white"
+        android:background="@drawable/box_8rad_upper_round"
+        app:tabBackground="@color/transparent"
         app:tabRippleColor="@color/theme_blue"
         app:tabIndicatorColor="@color/theme_blue"
         app:tabUnboundedRipple="false"

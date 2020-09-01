@@ -76,6 +76,7 @@ class LoginViewModel(private val loginModule : OAuthLogin,
     fun postParentInfo(parentInfo: parentInfo) {
         apiCall(serverRepository.postParentInfo(parentInfo),
         onSuccess = Consumer { it ->
+            usertype = userType.parent
             _isPostFinished.call()
         },
         onError = Consumer {
