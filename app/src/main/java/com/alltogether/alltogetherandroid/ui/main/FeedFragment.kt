@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import com.alltogether.alltogetherandroid.R
 import com.alltogether.alltogetherandroid.base.BaseFragment
 import com.alltogether.alltogetherandroid.utils.setErrorMessage
+import kotlinx.android.synthetic.main.dialog_supporter_info.*
 import kotlinx.android.synthetic.main.fragment_child_info.*
 import kotlinx.android.synthetic.main.fragment_feed.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -31,6 +33,7 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
     private lateinit var check_adapter: FeedListAdapter
 
     private lateinit var childInfoDialogFragment : childInfoDialog
+    private lateinit var supporterInfoDialogFragment: supporterInfoDialog
 
     override fun viewInit() {
     }
@@ -94,11 +97,12 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
 
     private val itemClick = object : FeedSupporterAdapter.OnItemClickListener {
         override fun onItemClick(v: View, position: Int) {
+            supporterInfoDialogFragment = supporterInfoDialog(viewModel, position)
+            supporterInfoDialogFragment.show(childFragmentManager, "supporterInfo")
         }
     }
 
     class childInfoDialog(val mainViewModel: MainViewModel) : DialogFragment() {
-
         override fun onResume() {
             super.onResume()
             val windowManager = requireActivity().getSystemService(Context.WINDOW_SERVICE) as WindowManager
@@ -124,6 +128,38 @@ class FeedFragment : BaseFragment<FeedViewModel>(){
             child_type_input_edit.setText(mainViewModel.childInfo?.childType)
             child_target_input_edit.setText(mainViewModel.childInfo?.childGoal)
             child_character_input_edit.setText(mainViewModel.childInfo?.childCharacter)
+        }
+    }
+
+    class supporterInfoDialog(val viewModel: FeedViewModel, val position: Int) : DialogFragment() {
+        override fun onResume() {
+            super.onResume()
+            val windowManager = requireActivity().getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val display = windowManager.defaultDisplay
+            val size = Point()
+            display.getRealSize(size)
+            val params: ViewGroup.LayoutParams? = dialog?.window?.attributes
+            val deviceWidth = size.x
+            params?.width = (deviceWidth * 0.9).toInt()
+            dialog?.window?.attributes = params as WindowManager.LayoutParams
+        }
+        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+            val view = inflater.inflate(R.layout.dialog_supporter_info, container,false)
+            dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+            return view
+        }
+        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+            supporter_name.setText(viewModel.supporterList!![position].name)
+            supporter_major.setText(viewModel.supporterList!![position].major)
+            supporter_school_desc.setText(viewModel.supporterList!![position].department)
+            supporter_age_desc.setText(viewModel.supporterList!![position].age)
+            supporter_gender_desc.setText(viewModel.supporterList!![position].gender)
+            supporter_child_desc.setText(viewModel.supporterList!![position].experience)
+            supporter_time_desc.setText(viewModel.supporterList!![position].officeTime)
+            supporter_intro_edit.setText(viewModel.supporterList!![position].introduce)
+            supporter_profile_image.load(viewModel.supporterList!![position].image)
         }
     }
 }
