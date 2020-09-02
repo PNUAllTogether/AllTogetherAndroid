@@ -12,6 +12,8 @@ class MainViewModel(private val serverRepository: ServerRepository) : BaseViewMo
     val moveTo: LiveData<Int> get() = _moveTo
     private val _getChildFinished: SingleLiveEvent<Any> = SingleLiveEvent()
     val getChildFinished: LiveData<Any> get() = _getChildFinished
+    private val _noChildWait: SingleLiveEvent<Any> = SingleLiveEvent()
+    val noChildWait: LiveData<Any> get() = _noChildWait
 
     var childInfo : childInfo? = null
     var userID : Int? = null
@@ -24,8 +26,14 @@ class MainViewModel(private val serverRepository: ServerRepository) : BaseViewMo
         userID = id
         apiCall(serverRepository.getChildInfo(id),
         onSuccess = Consumer {
-            childInfo = it.childList[0]
-            _getChildFinished.call()
+            if(it.childList == null || it.childList.isEmpty()) {
+                _noChildWait.call()
+            }
+            else {
+                childInfo = it.childList[0]
+                _getChildFinished.call()
+            }
+
         })
     }
 }

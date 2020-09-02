@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.alltogether.alltogetherandroid.ActivityViewModel
 import com.alltogether.alltogetherandroid.R
@@ -62,6 +63,9 @@ class MainFragment: BaseFragment<MainViewModel>() {
     override fun dataInit() {
         viewModel.moveTo.observe(viewLifecycleOwner, Observer {
             viewPager!!.setCurrentItem(it, true)
+        })
+        viewModel.noChildWait.observe(viewLifecycleOwner, Observer {
+            findNavController().navigate(R.id.action_mainFragment_to_waitFragment)
         })
     }
 
