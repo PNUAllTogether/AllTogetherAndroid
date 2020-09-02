@@ -6,11 +6,19 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
+    signingConfigs {
+        config {
+            storeFile file('C:\\Users\\Jay\\Desktop\\default\\key.jks')
+            storePassword 'wodud951'
+            keyAlias 'key0'
+            keyPassword 'wodud951'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.example.alltogetherandroid"
+        applicationId "com.alltogether.alltogetherandroid"
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
@@ -21,8 +29,9 @@ android {
 
     buildTypes {
         release {
+            debuggable true
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
